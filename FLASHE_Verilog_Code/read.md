@@ -39,7 +39,7 @@ Contains the verification environment to validate the hardware logic.
 
 ---
 
-## 🛠 Prerequisites
+## Prerequisites
 
 - **Development Tool**: Xilinx Vivado 2024.2 or higher.
 - **Target Hardware**: Zynq-7000 SoC (e.g., Zybo Z7) or any FPGA-based development environment.

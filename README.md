@@ -95,7 +95,7 @@ This repository is intended to support reproducibility at two levels.
 
 ### 1. Software-level reproduction
 
-Software-side validation of the FLASCHE pipeline, including pattern extraction, top-filter selection, counting, ranking, and scoring, primarily targeting the MNIST benchmark.
+Software-side validation of the FLASCHE pipeline, including pattern extraction, top-filter selection, counting, ranking, and scoring.
 
 ### 2. Hardware-level understanding and verification
 
@@ -141,27 +141,6 @@ python -m src.pipeline.train_inference --config configs/paper_digits_configs.yam
 ### Hardware
 
 For hardware-related usage, simulation, and implementation notes, see `FLASHE_Verilog_Code/README.md`.
-
----
-
-## Hardware Note
-
-The FLASCHE hardware flow is based on a CAM/CCAM-oriented architecture for efficient pattern matching and scoring. In the supplementary description, the FPGA design is organized around modules such as:
-
-- `TopModule`
-- `EdgeCounterModule`
-- `EdgeModule`
-- `TrainingModule`
-- `ScoringModule`
-
-At a high level:
-
-- `EdgeCounterModule` selects top-k 2×2 filters from pattern occurrence statistics
-- `EdgeModule` performs hardware-oriented convolution/matching
-- `TrainingModule` accumulates class-specific spatial counts and prepares ranked inference tables
-- `ScoringModule` performs rank-based matching and score accumulation during inference
-
-See `FLASHE_Verilog_Code/README.md` for the hardware-specific explanation and implementation scope of the public release.
 
 ---
 

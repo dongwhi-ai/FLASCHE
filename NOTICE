@@ -22,8 +22,8 @@ repository license and may be subject to separate licenses, terms, or usage
 restrictions from their respective providers.
 
 In particular:
-- MNIST is not redistributed as part of this repository and should be obtained
-  separately by the user, then placed under the appropriate data directory.
+- The MNIST dataset is included in this repository, 
+  and users may use the provided data without downloading it separately.
 - The Digits dataset used in some experiments is accessed through the
   scikit-learn package and is not distributed as a standalone dataset within
   this repository.

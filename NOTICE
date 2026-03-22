@@ -1,0 +1,32 @@
+FLASCHE
+Copyright 2026 Kyung Hee University, Integrated Circuit Interface Lab
+
+This repository accompanies the research work:
+"FLASCHE: A Feedforward Location Activated Spike-based Computational-CAM
+Hardening Edge-processor Using Hierarchical Feature Extraction for Rapid 
+On-Chip Learning and Inference"
+
+This repository contains:
+- software code for CPU-based simulation and algorithm validation,
+- hardware-related source code and supporting materials for implementation
+  and verification.
+
+This repository is released under the Apache License, Version 2.0.
+See the LICENSE file for details.
+
+The Apache-2.0 license applies to the original code and documentation in this
+repository unless otherwise noted.
+
+Datasets and third-party components are not necessarily covered by the
+repository license and may be subject to separate licenses, terms, or usage
+restrictions from their respective providers.
+
+In particular:
+- MNIST is not redistributed as part of this repository and should be obtained
+  separately by the user, then placed under the appropriate data directory.
+- The Digits dataset used in some experiments is accessed through the
+  scikit-learn package and is not distributed as a standalone dataset within
+  this repository.
+
+If you use this repository in academic work, please cite the corresponding
+paper and acknowledge the original repository.

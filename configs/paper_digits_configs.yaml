@@ -1,0 +1,79 @@
+project: flasche
+
+seed: 42
+
+path:
+  data: "./data"
+  result: "./results"
+
+data:
+  use: "digits"
+  train_cnt: 1500
+  infer_cnt: 297
+
+labeling:
+  label_num: 10
+  class_mapping: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+
+input_spec:
+  channels: 1
+  height: 8
+  width: 8
+
+model_spec:
+  layers: ["top_conv", "norm", "score"]
+  layer_params: [
+    {
+    "label_num": 10,
+    "kernel_size": [2, 2],
+    "strides": [1, 1],
+    "use_weight_based_threshold": false,
+    "input_max": 16,
+    "all_ctcam_creation": true,
+    "top_num": 12,
+    "top_thresholds": [12],
+    "filter_weight_min": 1,
+    "dynamic_kernel_order": false,
+    }, {
+    "stretching": false,
+    "new_max": 15,
+    "old_min": 0,
+    "old_max": 0,
+    "normalize_per_group": false,
+    "normalize_per_image": true,
+    "adaptability": "Weak",
+    }, {
+    "strides": [1, 1],
+    "exclude_zero": false,
+    "nearn": false,
+    "use_weight_based_threshold": false,
+    "quant_thresholds": [8],
+    "penalty_interval": 0,
+    "thresholds": [1, 10, 21, 22, 31, 33],
+    "score_vals": [82, 52, 43, 9, 69, 46],
+    }]
+
+train:
+  batch_size: 2
+
+inference:
+  batch_size: 1
+
+save_options:
+  train_save_options: {"save_image_indices": [], 
+    "save_image_dir": "./results", 
+    "save_image_type": ".txt", 
+    "save_image_one_file": True, 
+    "save_image_float": False, 
+    "save_image_hex": False}
+  test_save_options: {"save_image_indices": [], 
+    "save_image_dir": "./results", 
+    "save_image_type": ".txt", 
+    "save_image_one_file": True, 
+    "save_image_float": False, 
+    "save_image_hex": True, 
+    "save_score_indices": [], 
+    "save_score_dir": "./results"}
+  save_count: false
+  save_count_dir: "./results"
+  save_count_sep: false 

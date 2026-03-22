@@ -1,0 +1,103 @@
+project: flasche
+
+seed: 42
+
+path:
+  data: "./data"
+  result: "./results"
+
+data:
+  use: "MNIST_selection"
+  train_cnt: 1000
+  infer_cnt: 100
+
+labeling:
+  label_num: 10
+  class_mapping: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+
+input_spec:
+  channels: 1
+  height: 28
+  width: 28
+
+model_spec:
+  layers: ["top_conv", "norm", "zeropad", "maxpool", "top_conv", "norm", "score"]
+  layer_params: [
+    {
+    "label_num": 10,
+    "kernel_size": [2, 2],
+    "strides": [1, 1],
+    "use_weight_based_threshold": false,
+    "input_max": 255,
+    "all_ctcam_creation": true,
+    "top_num": 12,
+    "top_thresholds": [233],
+    "filter_weight_min": 1,
+    "dynamic_kernel_order": true,
+    }, {
+    "stretching": false,
+    "new_max": 511,
+    "old_min": 0,
+    "old_max": 255,
+    "normalize_per_group": false,
+    "normalize_per_image": true,
+    "adaptability": "Weak",
+    }, {
+    "pad_width": [[0, 1], [0, 1]], 
+    }, {
+    "pool_size": [2, 2], 
+    "strides": [2, 2], 
+    }, {
+    "label_num": 10,
+    "kernel_size": [3, 3],
+    "strides": [1, 1],
+    "use_weight_based_threshold": false,
+    "input_max": 511,
+    "all_ctcam_creation": true,
+    "top_num": 8,
+    "top_thresholds": [508],
+    "filter_weight_min": 1,
+    "dynamic_kernel_order": true,
+    }, {
+    "stretching": false,
+    "new_max": 1023,
+    "old_min": 0,
+    "old_max": 511,
+    "normalize_per_group": false,
+    "normalize_per_image": true,
+    "adaptability": "Weak",
+    }, {
+    "strides": [1, 1],
+    "exclude_zero": false,
+    "nearn": true,
+    "use_weight_based_threshold": false,
+    "quant_thresholds": [594],
+    "penalty_interval": 0,
+    "thresholds": [26, 53, 65, 76, 85, 109, 124, 139, 161, 171], 
+    "score_vals": [70, 67, 55, 71, 79, 43, 45, 89, 47, 86], 
+    }]
+
+train:
+  batch_size: 2
+
+inference:
+  batch_size: 1
+
+save_options:
+  train_save_options: {"save_image_indices": [], 
+    "save_image_dir": "./results", 
+    "save_image_type": ".txt", 
+    "save_image_one_file": True, 
+    "save_image_float": False, 
+    "save_image_hex": False}
+  test_save_options: {"save_image_indices": [], 
+    "save_image_dir": "./results", 
+    "save_image_type": ".txt", 
+    "save_image_one_file": True, 
+    "save_image_float": False, 
+    "save_image_hex": True, 
+    "save_score_indices": [], 
+    "save_score_dir": "./results"}
+  save_count: false
+  save_count_dir: "./results"
+  save_count_sep: false 

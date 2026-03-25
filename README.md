@@ -167,7 +167,7 @@ If you use this repository in academic work, please cite the corresponding paper
 @article{kim2026flasche,
   title={FLASCHE: A Feedforward Location Activated Spike-based Computational-CAM Hardening Edge-processor Using Hierarchical Feature Extraction for Rapid On-Chip Learning and Inference},
   author={Kim, Dongwhi and Rhim, Hyunki and Choi, Huiseong and Kim, Sumin and Park, Joohwan and Hong, Choong Seon and Hong, Sang Hoon},
-  journal={Under review at Neurocomputing},
+  journal={Submissions being processed at Neurocomputing},
   year={2026}
 }
 ```

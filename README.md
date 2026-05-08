@@ -57,6 +57,8 @@ The manuscript reports the following representative results:
 - **FPGA core learning time:** 6.9 ms for 1,500 training images
 - **FPGA core inference time:** 7.5 µs/image at 50 MHz
 
+> **Note**
+> The software configuration in this public repository is designed to follow the manuscript setting as closely as possible. However, for practical CPU-based execution, the public code uses a batch size of 1, which may introduce minor differences from the original experimental setting and from the exact reported software accuracy.
 ---
 
 ## Repository Organization
@@ -89,13 +91,15 @@ FLASCHE
 
 ---
 
-## Reproducibility Scope
+## Reproducibility Scope and Public Release Note
 
-This repository is intended to support reproducibility at two levels.
+This repository is intended to support reproducibility at the method and pipeline level.
 
 ### 1. Software-level reproduction
 
-Software-side validation of the FLASCHE pipeline, including pattern extraction, top-filter selection, counting, ranking, and scoring.
+The public software implementation reproduces the core FLASCHE pipeline, including pattern extraction, top-filter selection, counting, ranking, and scoring.
+
+The implementation is configured to follow the manuscript setting as closely as possible. However, to keep the public release executable in a CPU-oriented environment, some practical adjustments were made. In particular, the public software path uses a batch size of 1 rather than the manuscript setting used for the reported peak software result. Therefore, minor differences in software accuracy or execution behavior may occur.
 
 ### 2. Hardware-level understanding and verification
 
@@ -149,11 +153,11 @@ For hardware-related usage, simulation, and implementation notes, see `FLASHE_Ve
 This repository is intended for:
 
 - academic review
-- research reproduction
+- reference reproduction of the FLASCHE pipeline
 - method understanding
 - software/hardware comparison for CAM-based on-chip learning
 
-It is not presented as a general-purpose deep learning framework. Instead, it is a research repository accompanying the FLASCHE manuscript and focused on reproducibility of the proposed method.
+It is not presented as a general-purpose deep learning framework. Instead, it is a research repository accompanying the FLASCHE manuscript and focused on reference-level reproduction and understanding of the proposed method.
 
 ---
 

@@ -129,18 +129,39 @@ This repository uses the following datasets:
 #### Via helper script
 
 ```bash
+# Randomly sampled subset of MNIST
 scripts/run_train_inference --config configs/default.yaml
+
+# Full MNIST
 scripts/run_train_inference --config configs/paper_MNIST_configs.yaml
+
+# Digits dataset
 scripts/run_train_inference --config configs/paper_digits_configs.yaml
 ```
 
 #### Direct Python invocation
 
 ```bash
+# Randomly sampled subset of MNIST
 python -m src.pipeline.train_inference --config configs/default.yaml
+
+# Full MNIST
 python -m src.pipeline.train_inference --config configs/paper_MNIST_configs.yaml
+
+# Digits dataset
 python -m src.pipeline.train_inference --config configs/paper_digits_configs.yaml
 ```
+
+#### Configuration Notes
+
+- `configs/default.yaml`
+  - Uses only a randomly sampled subset of the MNIST dataset.
+
+- `configs/paper_MNIST_configs.yaml`
+  - Uses the full MNIST dataset.
+
+- `configs/paper_digits_configs.yaml`
+  - Uses the Digits dataset for software validation related to the FPGA-oriented setup.
 
 ### Hardware
 
